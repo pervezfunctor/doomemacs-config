@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Jetbrains Mono" :size 28 :weight 'normal)
-      doom-variable-pitch-font (font-spec :family "Noto Sans" :weight 'normal :size 28))
+(setq doom-font (font-spec :family "Jetbrains Mono" :size 15 :weight 'normal)
+      doom-variable-pitch-font (font-spec :family "Cascadia Code" :weight 'normal :size 15))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -101,3 +101,15 @@
 ;;   (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO"
 ;;                  "LANG" "LC_CTYPE" "JAVA_HOME" "JDK_HOME"))
 ;;     (add-to-list 'exec-path-from-shell-variables var)))
+
+(setq evil-default-state 'emacs)
+(setq +format-with-lsp nil)
+
+;; check OS type
+(cond
+ ((string-equal system-type "darwin") ; Mac OS X
+  (progn
+    (setq mac-option-key-is-meta nil)
+    (setq mac-command-key-is-meta t)
+    (setq mac-command-modifier 'meta)
+    (setq mac-option-modifier nil))))
